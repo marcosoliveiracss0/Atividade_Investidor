@@ -1,62 +1,47 @@
-# Automação Selenium — Investidor10 (ITSA3 – 1 dia)
+## Como Executar o Código (Passo a Passo)
+Passo 1: Abrir a Pasta do Projeto
+Abra o Visual Studio Code.
 
-Script em Python (Selenium) que acessa o **Investidor10**, abre a página da **ITSA3** e seleciona a aba **“1 dia”** na seção **COTAÇÃO ITSA3**, salvando um print da seção.
+Vá em Arquivo (File) > Abrir Pasta... (Open Folder...).
 
-## 📦 Requisitos
+Selecione a pasta do seu projeto (ex: Selenium-Investidor10-main) e clique em Selecionar pasta.
 
-- **Python 3.8+**
-- **Google Chrome** instalado
-- **ChromeDriver** compatível com sua versão do Chrome  
-  > Dica: verifique a versão do Chrome em `Ajuda > Sobre o Google Chrome` e baixe o ChromeDriver correspondente.
-- Pacotes Python:
-  ```bash
-  pip install selenium
+Passo 2: Abrir o Terminal Integrado
+Com o projeto aberto, vá ao menu superior e clique em Terminal > Novo Terminal (New Terminal).
 
+Um painel de terminal aparecerá na parte inferior do VS Code.
 
-(Opcional) Para não se preocupar com o caminho do ChromeDriver, você pode usar webdriver-manager. Esse projeto usa caminho local por padrão.
+Passo 3: Ativar o Ambiente Virtual (O Passo Mais Importante!)
+No terminal que acabou de abrir, digite o comando abaixo e pressione Enter:
 
-📁 Estrutura sugerida
-/
-├─ investidor10_itsa3_1dia.py
-├─ README.md
-└─ .gitignore
+PowerShell
 
-⚙️ Configuração
+.\.venv\Scripts\Activate.ps1
+Confirmação: Você saberá que deu certo quando o início da linha do terminal mudar e mostrar (.venv), assim:
 
-No arquivo investidor10_itsa3_1dia.py, ajuste:
+(venv) PS C:\Users\marco\Downloads\Selenium-Investidor10-main>
 
-CHROMEDRIVER_PATH → caminho completo do seu chromedriver.exe
+Passo 4: Executar o Script Python
+Agora, com o ambiente virtual ativo, você está pronto para rodar o código. Digite o comando abaixo e pressione Enter:
 
-DOWNLOAD_DIR → pasta onde o screenshot será salvo (padrão: C:\Users\aluno\Downloads\unieuro_downloads)
+Bash
 
-HEADLESS = False se quiser ver o navegador durante a execução (recomendado na primeira vez)
+python investidor10_cotacao_1dia.py
+(Atenção: Se o nome do seu arquivo for diferente, substitua investidor10_cotacao_1dia.py pelo nome correto).
 
-▶️ Como executar
+## O que Vai Acontecer em Seguida?
+Se tudo estiver correto, você verá a mágica acontecer:
 
-No Windows (PowerShell ou Prompt de Comando), na pasta do projeto:
+O terminal mostrará as mensagens que adicionamos, como "Configurando o ChromeDriver automaticamente...".
 
-python atividade0310.py
+Uma janela do navegador Google Chrome se abrirá sozinha.
 
+O robô navegará até o site investidor10.com.br, irá para a página da ação ITSA3.
 
-Saída esperada:
+Ele vai rolar a página, clicar na aba "1 dia" e extrair a cotação.
 
-Um arquivo cotacao_itsa3_1dia.png salvo na pasta definida em DOWNLOAD_DIR.
+O terminal mostrará o valor da cotação e a mensagem de que o screenshot foi salvo.
 
-🧪 Problemas comuns
+Após uma pausa de 6 segundos, o navegador se fechará.
 
-FileNotFoundError: ChromeDriver não encontrado
-Corrija o caminho em CHROMEDRIVER_PATH para onde o chromedriver.exe realmente está.
-
-Versão incompatível entre Chrome e ChromeDriver
-Baixe a versão correta do ChromeDriver compatível com seu Chrome.
-
-Botão “1 dia” não é clicado
-Rode com HEADLESS = False e verifique se há pop-up de cookies. O script já tenta fechar automaticamente botões como “Aceitar/Concordo/Entendi”.
-
-🔐 Dica de segurança
-
-Não versione senhas, tokens ou dados pessoais. Evite subir arquivos como *.log, *.env e pastas temporárias.
-
-🧾 Licença
-
-Uso educacional/demonstrativo. Ajuste para sua necessidade.
+Na barra lateral do seu VS Code, uma nova pasta chamada downloads_projeto aparecerá, e dentro dela estará a imagem cotacao_itsa3_1dia.png.
